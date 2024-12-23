@@ -143,6 +143,21 @@ body {
   src: local('Kode Mono'), url(./fonts/KodeMono-VariableFont_wght.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Iceberg';
+  src: local('Iceberg'), url(./fonts/Iceberg-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Arimo';
+  src: local('Arimo'), url(./fonts/Arimo-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), url(./fonts/Roboto-LightItalic.ttf) format('truetype');
+}
+
 * {
   box-sizing: border-box;
 }
