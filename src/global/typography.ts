@@ -62,6 +62,7 @@ export const ContentText = styled.p`
   color: ${colors.black};
   @media(min-width: ${breakpoints.desktop}){
     font-size: 20px;
+    letter-spacing: 1px;
   }
 `
 
