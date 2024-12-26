@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../global";
+import { breakpoints, colors } from "../../global";
 
 export const Button = styled.button<{ $style: string, $color: string }>`
   display: flex;
@@ -16,13 +16,39 @@ export const Button = styled.button<{ $style: string, $color: string }>`
   font-size: 20px;
   color: ${props => props.$style === "outlined" ? props.$color : colors.buttonText};
 
-  &:hover{
+  &:active{
+    animation: fill 300ms;
+  }
+  &:not(:active){
+    animation: unfill 300ms;
+  }
+  
+  @media(min-width: ${breakpoints.desktop}){
+    &:hover{
     animation: fill 500ms forwards;
+    }
+    &:active{
+      animation: unfill 300ms forwards;
+    }
   }
   @keyframes fill{
+      0%{
+        background-color: ${props => props.$style === "outlined" ? "transparent" : props.$color};
+        color: ${props => props.$style === "outlined" ? props.$color : colors.buttonText};
+      }
       100%{
         background-color: ${props => props.$color};
         color: ${colors.buttonText};
+      }
+    }
+    @keyframes unfill{
+      0%{
+        background-color: ${props => props.$color};
+        color: ${colors.buttonText};
+      }
+      100%{
+        background-color: ${props => props.$style === "outlined" ? "transparent" : props.$color};
+        color: ${props => props.$style === "outlined" ? props.$color : colors.buttonText};
       }
     }
 `
