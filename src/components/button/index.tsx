@@ -15,22 +15,17 @@ export const Button = styled.button<{ $style: string, $color: string }>`
   color: ${props => props.$style === "outlined" ? props.$color : colors.buttonText};
 
   &:active{
-    animation: ${props => props.$style === "outlined" ? "fill 300ms" : "unfill 300ms"};
-  }
-  &:not(:active){
-    animation: ${props => props.$style === "outlined" ? "unfill 300ms" : "fill 300ms"};
+    animation: ${props => props.$style === "outlined" ? "fill linear 300ms alternate-reverse" : "unfill linear 300ms alternate-reverse"};
   }
   
   @media(min-width: ${breakpoints.desktop}){
     &:hover{
-    animation: ${props => props.$style === "outlined" ? "fill 500ms forwards" : "none"};
+      animation: ${props => props.$style === "outlined" ? "fill linear 300ms forwards" : "unfill linear 300ms forwards"};
     }
     &:active{
-      animation: unfill 300ms forwards;
+      animation: ${props => props.$style === "outlined" ? "unfill 300ms alternate-reverse" : "fill 300ms alternate-reverse"};
     }
-    &:not(:hover){
-      animation: ${props => props.$style === "outlined" ? "unfill 500ms forwards" : "none"};
-    }
+    
   }
   @keyframes fill{
       0%{

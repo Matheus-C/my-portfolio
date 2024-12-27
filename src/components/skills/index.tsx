@@ -1,5 +1,5 @@
 import { programming, skills } from "../../assets/skills"
-import { Dimension } from "../../global/dimension"
+import { Dimension } from "../image/dimension"
 import { SectionTitle } from "../../global/typography"
 import { Image } from "../image"
 import { Container, ContentContainer, IconsContainer } from "./Container"

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Main } from './components/main'
 import { About } from './components/about'
 import { Skills } from './components/skills'
+import { Projects } from './components/projects'
 
 const Container = styled.div`
 `
@@ -13,6 +14,7 @@ function App() {
       <Main />
       <About />
       <Skills />
+      <Projects />
     </Container>
   )
 }

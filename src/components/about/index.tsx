@@ -4,7 +4,7 @@ import { programmer } from "../../assets"
 import { aboutText1, aboutText2, aboutText3, aboutText4 } from "../../assets/text"
 import { Button } from "../button"
 import { colors } from "../../global"
-import { Dimension } from "../../global/dimension"
+import { Dimension } from "../image/dimension"
 import { Image } from "../image"
 
 
