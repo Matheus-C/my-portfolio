@@ -9,10 +9,39 @@ const Photo = styled.img`
   height: 100px;
   box-shadow: 4px 2px #F9ABAB;
   border-radius: 200px;
+  opacity: 0;
+  animation: 
+  levitate 800ms linear alternate infinite,
+  rotate linear 1s forwards;
+  
   @media(min-width: ${breakpoints.desktop}){
     width: 300px;
     height: 300px;
     box-shadow: 12px 8px #F9ABAB;
+  }
+  @keyframes rotate{
+    0%{
+      transform: rotate(0);
+      opacity: 0;
+    }
+    50%{
+      opacity: 0;
+    }
+    100%{
+      transform: rotate(1turn);
+      opacity: 100%;
+    }
+  }
+  @keyframes levitate{
+    0%{
+      margin: -10px 0 0 0;
+    }
+    50%{
+      margin: 0 0 0 0;
+    }
+    100%{
+      margin: 10px 0 0 0;
+    }
   }
 `
 
