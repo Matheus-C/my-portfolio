@@ -1,22 +1,30 @@
-import styled from "styled-components"
 import { ContentText, SectionTitle } from "../../global/typography"
 import { ButtonContainer, Container, ContentContainer, TextContainer } from "./Container"
 import { programmer } from "../../assets"
 import { aboutText1, aboutText2, aboutText3, aboutText4 } from "../../assets/text"
 import { Button } from "../button"
 import { colors } from "../../global"
+import { Dimension } from "../../global/dimension"
+import { Image } from "../image"
 
-const Img = styled.img`
-  width: 200px;
-  height: 200px;
-`
+
+const dimensions: Dimension = {
+  desktop: {
+    height: "200px",
+    width: "200px"
+  },
+  mobile: {
+    height: "200px",
+    width: "200px"
+  }
+}
 
 export const About = () => {
   return (
     <Container>
       <SectionTitle>Sobre mim</SectionTitle>
       <ContentContainer>
-        <Img src={programmer} />
+        <Image $dimensions={dimensions} src={programmer} />
         <TextContainer>
           <ContentText>{aboutText1}</ContentText>
           <br />

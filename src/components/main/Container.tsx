@@ -10,11 +10,11 @@ export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   gap: 10px;
-  padding: 16px 10px;
+  margin: 0 10px 16px;
   flex-direction: column;
   @media(min-width: ${breakpoints.desktop}) {
     flex-direction: row;
-    padding: 10px 80px;
+    margin: 0 80px 10px;
   }
 `
 

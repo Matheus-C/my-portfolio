@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Main } from './components/main'
 import { About } from './components/about'
+import { Skills } from './components/skills'
 
 const Container = styled.div`
 `
@@ -11,6 +12,7 @@ function App() {
     <Container>
       <Main />
       <About />
+      <Skills />
     </Container>
   )
 }

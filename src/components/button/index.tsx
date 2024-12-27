@@ -8,27 +8,28 @@ export const Button = styled.button<{ $style: string, $color: string }>`
   align-items: center;
   padding: 10px 16px;
   background-color: ${props => props.$style === "outlined" ? "transparent" : props.$color};
-  border-width: ${props => props.$style === "outlined" ? "1px" : "0px"};
-  border-style: solid;
-  border-color: ${props => props.$style === "outlined" ? props.$color : "none"};
+  border: 1px solid ${props => props.$color};
   border-radius: 14px;
   font-family: "Iceland";
   font-size: 20px;
   color: ${props => props.$style === "outlined" ? props.$color : colors.buttonText};
 
   &:active{
-    animation: fill 300ms;
+    animation: ${props => props.$style === "outlined" ? "fill 300ms" : "unfill 300ms"};
   }
   &:not(:active){
-    animation: unfill 300ms;
+    animation: ${props => props.$style === "outlined" ? "unfill 300ms" : "fill 300ms"};
   }
   
   @media(min-width: ${breakpoints.desktop}){
     &:hover{
-    animation: fill 500ms forwards;
+    animation: ${props => props.$style === "outlined" ? "fill 500ms forwards" : "none"};
     }
     &:active{
       animation: unfill 300ms forwards;
+    }
+    &:not(:hover){
+      animation: ${props => props.$style === "outlined" ? "unfill 500ms forwards" : "none"};
     }
   }
   @keyframes fill{

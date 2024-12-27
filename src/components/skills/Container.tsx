@@ -7,41 +7,33 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 32px;
   margin: 32px 16px 0;
   @media(min-width: ${breakpoints.desktop}){
-    justify-content: left;
-    gap: 32px;
     margin: 32px 128px 0;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 `
 
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 56px;
+  gap: 32px;
   padding: 32px 10px;
   @media(min-width: ${breakpoints.desktop}){
     flex-direction: row;
+    gap: 56px;
   }
 `
 
-export const ButtonContainer = styled.div`
+export const IconsContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 8px;
-  padding: 0;
+  gap: 16px;
   @media(min-width: ${breakpoints.desktop}){
-    gap: 40px;
-    flex-direction: row;
+    gap: 32px 32px;
   }
-`
-
-export const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
 `
