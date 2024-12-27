@@ -1,7 +1,7 @@
 import { ContentText, SectionTitle } from "../../global/typography"
 import { ButtonContainer, Container, ContentContainer, TextContainer } from "./Container"
 import { programmer } from "../../assets"
-import { aboutText1, aboutText2, aboutText3, aboutText4 } from "../../assets/text"
+import { aboutText1, aboutText2, aboutText3, aboutText4 } from "./text"
 import { Button } from "../button"
 import { colors } from "../../global"
 import { Dimension } from "../image/dimension"
