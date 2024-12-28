@@ -8,7 +8,7 @@ export const Projects = () => {
     <Container>
       <SectionTitle>Projetos</SectionTitle>
       <ContentContainer>
-        {projects.map(project => <Card {...project} />)}
+        {projects.map(project => <Card key={project.title} {...project} />)}
       </ContentContainer>
     </Container>
   )
