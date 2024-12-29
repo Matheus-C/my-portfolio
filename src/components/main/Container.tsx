@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { breakpoints, mobileSectionSpacing } from "../../global";
+import { breakpoints } from "../../global";
 
 
 export const Container = styled.div`
-  margin-bottom: ${mobileSectionSpacing};
+  margin-bottom: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@ export const Container = styled.div`
   flex-direction: column;
   @media(min-width: ${breakpoints.desktop}) {
     flex-direction: row;
-    margin: 0 80px 10px;
+    margin: -60px 80px 10px;
   }
 `
 

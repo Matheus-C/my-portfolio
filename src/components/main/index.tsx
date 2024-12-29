@@ -5,16 +5,21 @@ import { breakpoints } from "../../global"
 import { NameTitle, Subtitle, TitleMain } from "../../global/typography"
 
 const Photo = styled.img`
+  position: absolute;
   width: 100px;
   height: 100px;
+  top: 30vh;
   box-shadow: 4px 2px #F9ABAB;
   border-radius: 200px;
   opacity: 0;
+  z-index: -1;
   animation: 
   levitate 800ms linear alternate infinite,
   rotate linear 1s forwards;
   
   @media(min-width: ${breakpoints.desktop}){
+    top: auto;
+    position: relative;
     width: 300px;
     height: 300px;
     box-shadow: 12px 8px #F9ABAB;
@@ -34,20 +39,26 @@ const Photo = styled.img`
   }
   @keyframes levitate{
     0%{
-      margin: -10px 0 0 0;
+      margin: -5px 0 0 0;
+      @media(min-width: ${breakpoints.desktop}){
+        margin: -10px 0 0 0;
+      }
     }
     50%{
       margin: 0 0 0 0;
     }
     100%{
-      margin: 10px 0 0 0;
+      margin: 5px 0 0 0;
+      @media(min-width: ${breakpoints.desktop}){
+        margin: 10px 0 0 0;
+      }
     }
   }
 `
 
 export const Main = () => {
   return (
-    <Container>
+    <Container id="home">
       <Photo src={photo} />
       <TextContainer>
         <TitleContainer>

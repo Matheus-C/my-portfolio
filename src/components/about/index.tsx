@@ -21,7 +21,7 @@ const dimensions: Dimension = {
 
 export const About = () => {
   return (
-    <Container>
+    <Container id="about">
       <SectionTitle>Sobre mim</SectionTitle>
       <ContentContainer>
         <Image $dimensions={dimensions} src={programmer} />

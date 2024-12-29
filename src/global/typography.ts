@@ -39,6 +39,7 @@ export const NavbarText = styled.a`
   font-size: 16px;
   text-align: center;
   color: ${colors.black};
+  cursor: pointer;
   @media(min-width: ${breakpoints.desktop}){
     font-size: 32px;
   }

@@ -87,6 +87,15 @@ video {
   vertical-align: baseline;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 50px;
+
+  @media(min-width: 1280px) {
+    scroll-padding-top: 65px;
+  }
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -130,6 +139,8 @@ table {
 }
 
 body {
+  z-index: 0;
+  position: relative;
   background-color: #EBEFFA;
 }
 

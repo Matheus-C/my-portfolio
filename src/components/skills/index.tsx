@@ -27,7 +27,7 @@ const imgDimension: Dimension = {
 
 export const Skills = () => {
   return (
-    <Container>
+    <Container id="skills">
       <SectionTitle>Skills</SectionTitle>
       <ContentContainer>
         <Image $dimensions={imgDimension} src={programming} />

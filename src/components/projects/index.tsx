@@ -5,7 +5,7 @@ import { Container, ContentContainer } from "./Container"
 
 export const Projects = () => {
   return (
-    <Container>
+    <Container id="projects">
       <SectionTitle>Projetos</SectionTitle>
       <ContentContainer>
         {projects.map(project => <Card key={project.title} {...project} />)}

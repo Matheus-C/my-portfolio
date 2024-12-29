@@ -5,6 +5,7 @@ import { Skills } from './components/skills'
 import { Projects } from './components/projects'
 import { Contact } from './components/contact'
 import { Footer } from './components/footer'
+import { Navbar } from './components/navbar'
 
 const Container = styled.div`
 `
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <Container>
+      <Navbar />
       <Main />
       <About />
       <Skills />
