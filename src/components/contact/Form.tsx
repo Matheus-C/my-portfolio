@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { FormLabel } from "../../global/typography";
 import { Button, Spinner } from "../button";
 import { FaPaperPlane } from "react-icons/fa"
-import { spinner, spinnerDots } from "../../assets";
+import { spinner } from "../../assets";
 interface FormData {
   name: string,
   email: string,
@@ -118,9 +118,9 @@ export const Form = () => {
     e.preventDefault();
     setIsDisabled(true);
     try {
-      const response = await fetch('', {
+      const response = await fetch('https://obwvcztusdhxyykzbyzw.supabase.co/functions/v1/portfolio-mail', {
         body: JSON.stringify({
-          formData
+          ...formData
         }),
         method: "POST"
       });
@@ -129,12 +129,11 @@ export const Form = () => {
     }
     setIsDisabled(false);
   }
-
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <InputGroup label="Nome" type="text" id="name" value={formData.name} onChange={handleChange} />
-      <InputGroup label="Email" type="email" id="email" value={formData.email} onChange={handleChange} />
-      <TextAreaGroup label="Mensagem" id="message" value={formData.message} onChange={handleChange} />
+      <InputGroup label="Nome" type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
+      <InputGroup label="Email" type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+      <TextAreaGroup label="Mensagem" id="message" name="message" value={formData.message} onChange={handleChange} />
       <ButtonContainer>
         {isDisabled ? <Button $color={colors.buttonSend} $style="send" disabled={isDisabled}> <Spinner src={spinner} /> </Button> : <Button $color={colors.buttonSend} $style="normal" disabled={isDisabled}> <FaPaperPlane /> Enviar</Button>}
       </ButtonContainer>
