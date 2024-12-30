@@ -6,6 +6,7 @@ import { Button } from "../button"
 import { colors } from "../../global"
 import { Dimension } from "../image/dimension"
 import { Image } from "../image"
+import { keyframes } from "styled-components"
 
 
 const dimensions: Dimension = {
@@ -19,13 +20,24 @@ const dimensions: Dimension = {
   }
 }
 
+const slide = keyframes`
+  0%{
+    opacity: 0;
+
+  }
+`
+
 export const About = () => {
   return (
     <Container id="about">
       <SectionTitle>Sobre mim</SectionTitle>
       <ContentContainer>
-        <Image $dimensions={dimensions} src={programmer} />
-        <TextContainer>
+        <Image $dimensions={dimensions} src={programmer} initial={{ opacity: 0, translateX: "-25%" }}
+          whileInView={{ opacity: 1, translateX: "0%", transition: { bounce: false, ease: "linear", duration: 0.5 } }}
+          viewport={{ once: true }} />
+        <TextContainer initial={{ opacity: 0, translateX: "25%" }}
+          whileInView={{ opacity: 1, translateX: "0%", transition: { bounce: false, ease: "linear", duration: 0.5 } }}
+          viewport={{ once: true }}>
           <ContentText>{aboutText1}</ContentText>
           <br />
           <ContentText>{aboutText2}</ContentText>

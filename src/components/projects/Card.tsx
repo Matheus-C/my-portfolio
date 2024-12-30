@@ -5,8 +5,9 @@ import { ProjectText, ProjectTitle } from "../../global/typography"
 import { Button } from "../button"
 import { colors } from "../../global"
 import { Project } from "../../global/project"
+import { motion } from "motion/react"
 
-const ContainerCard = styled.div`
+const ContainerCard = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -43,7 +44,9 @@ const imgDimension: Dimension = {
 
 export const Card = (project: Project) => {
   return (
-    <ContainerCard>
+    <ContainerCard initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1, transition: { bounce: false, ease: "linear", duration: 1 } }}
+      viewport={{ once: true }}>
       <Image $dimensions={imgDimension} src={project.img} />
       <ContentContainer>
         <ProjectTitle>

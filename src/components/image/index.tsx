@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { breakpoints } from "../../global";
 import { Dimension } from "./dimension";
+import { motion } from "motion/react";
 
-export const Image = styled.img<{ $dimensions: Dimension }>`
+export const Image = styled(motion.img) <{ $dimensions: Dimension }>`
   height: ${props => props.$dimensions.mobile.height};
   width: ${props => props.$dimensions.mobile.width};
   min-width: ${props => props.$dimensions.mobile.minWidth ? props.$dimensions.mobile.minWidth : "none"};

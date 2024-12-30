@@ -14,7 +14,7 @@ const Photo = styled.img`
   opacity: 0;
   z-index: -1;
   animation: 
-  levitate 800ms linear alternate infinite,
+  levitate 700ms linear alternate infinite,
   rotate linear 1s forwards;
   
   @media(min-width: ${breakpoints.desktop}){

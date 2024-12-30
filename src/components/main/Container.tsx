@@ -23,8 +23,16 @@ export const TextContainer = styled.div`
   justify-content: center;
   gap: 10px;
   flex-direction: column;
+  opacity: 0;
+  animation: 500ms appear linear 1s forwards;
   @media(min-width: ${breakpoints.desktop}) {
-    padding: 0px 48px;
+    padding: 0px 48px 0px;
+  }
+
+  @keyframes appear{
+    to{
+      opacity: 1;
+    }
   }
 `
 

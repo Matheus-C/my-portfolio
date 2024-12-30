@@ -14,7 +14,7 @@ export const projects: Project[] = [
   },
   {
     title: "Driver Booklet",
-    text: "Projeto que visava fazer uma aplicação mobile PWA para motoristas de \
+    text: "Projeto que visa fazer uma aplicação mobile PWA para motoristas de \
     aplicativo e donos de frota em portugal poderem fazer relatórios e comprovar carga horária.",
     img: lamado,
     url: "/",

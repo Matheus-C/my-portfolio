@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { breakpoints } from "../../global";
+import { motion } from "motion/react";
 
 
 export const Container = styled.div`
@@ -41,7 +42,7 @@ export const ButtonContainer = styled.div`
   }
 `
 
-export const TextContainer = styled.div`
+export const TextContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
 `
