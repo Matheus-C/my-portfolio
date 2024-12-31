@@ -5,6 +5,7 @@ import { FormLabel } from "../../global/typography";
 import { Button, Spinner } from "../button";
 import { FaPaperPlane } from "react-icons/fa"
 import { spinner } from "../../assets";
+import { Alert } from "./Alert";
 interface FormData {
   name: string,
   email: string,
@@ -117,8 +118,9 @@ export const Form = () => {
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsDisabled(true);
+    let response: Response;
     try {
-      const response = await fetch('https://obwvcztusdhxyykzbyzw.supabase.co/functions/v1/portfolio-mail', {
+      response = await fetch('https://obwvcztusdhxyykzbyzw.supabase.co/functions/v1/portfolio-mail', {
         body: JSON.stringify({
           ...formData
         }),
@@ -126,8 +128,10 @@ export const Form = () => {
       });
     } catch (e) {
       console.error(e);
+    } finally {
+      setIsDisabled(false);
+      Alert(response!.status);
     }
-    setIsDisabled(false);
   }
   return (
     <FormContainer onSubmit={handleSubmit}>
