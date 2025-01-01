@@ -1,6 +1,6 @@
 import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
-import { ProjectText, ProjectTitle } from "../../global/typography"
+import { ProjectText } from "../../global/typography"
 import styled from "styled-components"
 
 const Link = styled.a`

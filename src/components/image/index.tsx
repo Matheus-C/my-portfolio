@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { breakpoints } from "../../global";
 import { Dimension } from "./dimension";
 import { motion } from "motion/react";

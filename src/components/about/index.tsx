@@ -6,7 +6,6 @@ import { Button } from "../button"
 import { colors } from "../../global"
 import { Dimension } from "../image/dimension"
 import { Image } from "../image"
-import { keyframes } from "styled-components"
 
 
 const dimensions: Dimension = {
@@ -19,13 +18,6 @@ const dimensions: Dimension = {
     width: "200px"
   }
 }
-
-const slide = keyframes`
-  0%{
-    opacity: 0;
-
-  }
-`
 
 export const About = () => {
   return (
