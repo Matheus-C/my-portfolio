@@ -8,7 +8,7 @@ export const projects: Project[] = [
     text: "Landing page desenvolvida  para um representante de marcas de tintas \
     e impermeabilizantes que busca aumentar seu alcance.",
     img: lamado,
-    url: "/",
+    url: "https://lamadorepresentacoes.com.br",
     buttonText: "Ver projeto",
     buttonStyle: "normal"
   },

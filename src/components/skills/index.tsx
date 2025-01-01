@@ -3,6 +3,7 @@ import { Dimension } from "../image/dimension"
 import { SectionTitle } from "../../global/typography"
 import { Image } from "../image"
 import { Container, ContentContainer, IconsContainer } from "./Container"
+import { Tooltip } from "react-tooltip"
 
 const logoDimensions: Dimension = {
   desktop: {
@@ -34,9 +35,9 @@ export const Skills = () => {
           whileInView={{ opacity: 1, translateX: "0%", transition: { bounce: false, ease: "linear", duration: 0.5 } }}
           viewport={{ once: true }} />
         <IconsContainer>
-          {skills.map(skill => <Image $dimensions={logoDimensions} key={skill.name} src={skill.src} initial={{ scale: 0.1 }}
+          {skills.map(skill => <div key={skill.name}><Image $dimensions={logoDimensions} src={skill.src} initial={{ scale: 0.1 }}
             whileInView={{ scale: 1, transition: { bounce: false, ease: "linear", duration: 0.5 } }}
-            viewport={{ once: true }} />)}
+            viewport={{ once: true }} $hover={true} data-tooltip-id={skill.name} data-tooltip-content={skill.name} /> <Tooltip id={skill.name} /></div>)}
         </IconsContainer>
       </ContentContainer>
     </Container>

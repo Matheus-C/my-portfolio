@@ -47,7 +47,7 @@ export const Card = (project: Project) => {
     <ContainerCard initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, transition: { bounce: false, ease: "linear", duration: 1 } }}
       viewport={{ once: true }}>
-      <Image $dimensions={imgDimension} src={project.img} />
+      <Image $dimensions={imgDimension} src={project.img} $hover />
       <ContentContainer>
         <ProjectTitle>
           {project.title}

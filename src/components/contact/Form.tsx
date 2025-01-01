@@ -5,11 +5,16 @@ import { FormLabel } from "../../global/typography";
 import { Button, Spinner } from "../button";
 import { FaPaperPlane } from "react-icons/fa"
 import { spinner } from "../../assets";
-import { Alert } from "./Alert";
+import { Alert, ErrorAlert } from "./Alert";
 interface FormData {
   name: string,
   email: string,
   message: string
+}
+
+interface ErrorData {
+  fieldName: string,
+  error: string
 }
 
 const FormContainer = styled.form`
@@ -84,20 +89,20 @@ const TextArea = styled.textarea`
   }
 `
 
-const InputGroup: React.FC<InputProps> = ({ label, type, id, value, ...rest }) => {
+const InputGroup: React.FC<InputProps> = ({ label, type, id, value, disabled, required, ...rest }) => {
   return (
     <InputWrapper>
       <FormLabel htmlFor={id}>{label}</FormLabel>
-      <Input type={type} id={id} name={id} value={value} {...rest} />
+      <Input type={type} id={id} name={id} value={value} required={required} disabled={disabled} {...rest} />
     </InputWrapper>
   )
 }
 
-const TextAreaGroup: React.FC<TextAreaProps> = ({ label, id, value, ...rest }) => {
+const TextAreaGroup: React.FC<TextAreaProps> = ({ label, id, value, disabled, required, ...rest }) => {
   return (
     <InputWrapper>
       <FormLabel htmlFor={id}>{label}</FormLabel>
-      <TextArea id={id} name={id} value={value} {...rest} />
+      <TextArea id={id} name={id} value={value} required={required} disabled={disabled} {...rest} />
     </InputWrapper>
   )
 }
@@ -109,7 +114,7 @@ export const Form = () => {
     name: '',
     email: '',
     message: ''
-  })
+  });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prevData => ({ ...prevData, [name]: value }))
@@ -119,25 +124,51 @@ export const Form = () => {
     e.preventDefault();
     setIsDisabled(true);
     let response: Response;
-    try {
-      response = await fetch('https://obwvcztusdhxyykzbyzw.supabase.co/functions/v1/portfolio-mail', {
-        body: JSON.stringify({
-          ...formData
-        }),
-        method: "POST"
-      });
-    } catch (e) {
-      console.error(e);
-    } finally {
+    const errors: ErrorData[] = [];
+    if (formData.name === "") {
+      errors.push({ fieldName: "nome", error: "vazio" })
+    }
+    if (formData.message === "") {
+      errors.push({ fieldName: "mensagem", error: "vazio" })
+    }
+    if (formData.email === "") {
+      errors.push({ fieldName: "email", error: "vazio" })
+    } else {
+      if (!formData.email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+        errors.push({ fieldName: "email", error: "inválido" })
+      }
+    }
+    if (errors.length > 0) {
+      let errorMsg: string[] = [];
+      errors.map(error => errorMsg.push(`O campo ${error.fieldName} está ${error.error}`));
+      ErrorAlert(errorMsg);
       setIsDisabled(false);
-      Alert(response!.status);
+    } else {
+      try {
+        response = await fetch('https://obwvcztusdhxyykzbyzw.supabase.co/functions/v1/portfolio-mail', {
+          body: JSON.stringify({
+            ...formData
+          }),
+          method: "POST"
+        });
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setIsDisabled(false);
+        Alert(response!.status);
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+      }
     }
   }
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <InputGroup label="Nome" type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
-      <InputGroup label="Email" type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
-      <TextAreaGroup label="Mensagem" id="message" name="message" value={formData.message} onChange={handleChange} />
+      <InputGroup label="Nome" type="text" id="name" name="name" value={formData.name} disabled={isDisabled} required={true} onChange={handleChange} />
+      <InputGroup label="Email" type="email" id="email" name="email" value={formData.email} disabled={isDisabled} required={true} onChange={handleChange} />
+      <TextAreaGroup label="Mensagem" id="message" name="message" value={formData.message} disabled={isDisabled} required={true} onChange={handleChange} />
       <ButtonContainer>
         {isDisabled ? <Button $color={colors.buttonSend} $style="send" disabled={isDisabled}> <Spinner src={spinner} /> </Button> : <Button $color={colors.buttonSend} $style="normal" disabled={isDisabled}> <FaPaperPlane /> Enviar</Button>}
       </ButtonContainer>
