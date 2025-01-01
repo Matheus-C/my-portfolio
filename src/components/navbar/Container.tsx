@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   top: 0;
+  z-index: 1000000;
   position: sticky;
 `
 
