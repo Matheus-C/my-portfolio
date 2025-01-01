@@ -20,15 +20,21 @@ const dimensions: Dimension = {
 }
 
 export const About = () => {
+  const imgVariant = {
+    initial: { opacity: 0, translateX: "-25%" },
+    whileInView: { opacity: 1, translateX: "0%", transition: { bounce: false, ease: "linear", duration: 0.5 } }
+  }
+  const textVariant = {
+    initial: { opacity: 0, translateX: "25%" },
+    whileInView: { opacity: 1, translateX: "0%", transition: { bounce: false, ease: "linear", duration: 0.5 } }
+  }
   return (
     <Container id="about">
       <SectionTitle>Sobre mim</SectionTitle>
       <ContentContainer>
-        <Image $dimensions={dimensions} src={programmer} initial={{ opacity: 0, translateX: "-25%" }}
-          whileInView={{ opacity: 1, translateX: "0%", transition: { bounce: false, ease: "linear", duration: 0.5 } }}
-          viewport={{ once: true }} />
-        <TextContainer initial={{ opacity: 0, translateX: "25%" }}
-          whileInView={{ opacity: 1, translateX: "0%", transition: { bounce: false, ease: "linear", duration: 0.5 } }}
+        <Image $dimensions={dimensions} src={programmer} variants={imgVariant} initial="initial"
+          whileInView="whileInView" viewport={{ once: true }} />
+        <TextContainer variants={textVariant} initial="initial" whileInView="whileInView"
           viewport={{ once: true }}>
           <ContentText>{aboutText1}</ContentText>
           <br />

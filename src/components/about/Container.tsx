@@ -24,7 +24,7 @@ export const ContentContainer = styled.div`
   align-items: center;
   gap: 56px;
   padding: 32px 10px;
-  @media(min-width: ${breakpoints.desktop}){
+  @media(min-width: ${breakpoints.tablet}){
     flex-direction: row;
   }
 `
