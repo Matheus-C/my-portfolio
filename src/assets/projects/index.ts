@@ -1,6 +1,7 @@
 import { Project } from "../../global/project";
 import github from "./github.png"
 import lamado from "./lamado.png"
+import driverBooklet from "./driver-booklet.png"
 
 export const projects: Project[] = [
   {
@@ -16,8 +17,8 @@ export const projects: Project[] = [
     title: "Driver Booklet",
     text: "Projeto que visa fazer uma aplicação mobile PWA para motoristas de \
     aplicativo e donos de frota em portugal poderem fazer relatórios e comprovar carga horária.",
-    img: lamado,
-    url: "/",
+    img: driverBooklet,
+    url: "https://driver-booklet.vercel.app/",
     buttonText: "Ver projeto",
     buttonStyle: "normal"
   },
