@@ -46,7 +46,7 @@ export const About = () => {
         </TextContainer>
       </ContentContainer>
       <ButtonContainer>
-        <Button $color={colors.button} $style="fill">Entrar em contato</Button>
+        <Button $color={colors.button} $style="fill" onClick={() => window.location.href = "#contact"}>Entrar em contato</Button>
         <Button $color={colors.button} $style="outlined">Baixar Currículo</Button>
       </ButtonContainer>
     </Container>
