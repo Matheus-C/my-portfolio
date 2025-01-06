@@ -1,6 +1,6 @@
 import { ContentText, SectionTitle } from "../../global/typography"
 import { ButtonContainer, Container, ContentContainer, TextContainer } from "./Container"
-import { programmer } from "../../assets"
+import { curriculum, programmer } from "../../assets"
 import { aboutText1, aboutText2, aboutText3, aboutText4 } from "./text"
 import { Button } from "../button"
 import { colors } from "../../global"
@@ -47,7 +47,7 @@ export const About = () => {
       </ContentContainer>
       <ButtonContainer>
         <Button $color={colors.button} $style="fill" onClick={() => window.location.href = "#contact"}>Entrar em contato</Button>
-        <Button $color={colors.button} $style="outlined">Baixar Currículo</Button>
+        <Button $color={colors.button} $style="outlined" href={curriculum} download>Baixar Currículo</Button>
       </ButtonContainer>
     </Container>
   )
