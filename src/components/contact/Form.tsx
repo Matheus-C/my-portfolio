@@ -123,7 +123,6 @@ export const Form = () => {
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsDisabled(true);
-    let response: Response;
     const errors: ErrorData[] = [];
     if (formData.name === "") {
       errors.push({ fieldName: "nome", error: "vazio" })
@@ -145,17 +144,18 @@ export const Form = () => {
       setIsDisabled(false);
     } else {
       try {
-        response = await fetch('https://obwvcztusdhxyykzbyzw.supabase.co/functions/v1/portfolio-mail', {
+        const response = await fetch('https://obwvcztusdhxyykzbyzw.supabase.co/functions/v1/portfolio-mail', {
           body: JSON.stringify({
             ...formData
           }),
           method: "POST"
         });
+        Alert(response.status);
       } catch (e) {
+        Alert(500);
         console.error(e);
       } finally {
         setIsDisabled(false);
-        Alert(response!.status);
         setFormData({
           name: '',
           email: '',
