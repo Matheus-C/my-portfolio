@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { breakpoints, colors } from "../../global";
 
 
-export const Button = styled.a<{ $style: string, $color: string }>`
+export const Button = styled.button<{ $style: string, $color: string }>`
   text-decoration: none;
   display: flex;
   gap: 10px;
