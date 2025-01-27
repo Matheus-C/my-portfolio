@@ -9,11 +9,11 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   gap: 16px;
-  margin: 32px 16px 0;
+  margin: 48px 16px;
   @media(min-width: ${breakpoints.desktop}){
     justify-content: left;
     gap: 32px;
-    margin: 32px 128px 0;
+    margin: 48px 128px;
   }
 `
 
@@ -35,9 +35,10 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  padding: 0;
+  padding: 0 0 24px;
   @media(min-width: ${breakpoints.desktop}){
     gap: 40px;
+    padding: 0;
     flex-direction: row;
   }
 `

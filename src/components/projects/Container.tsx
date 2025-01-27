@@ -8,12 +8,12 @@ export const Container = styled.div`
   gap: 16px;
   justify-content: center;
   align-items: center;
-  margin: 32px 16px;
+  margin: 48px 16px;
   @media(min-width: ${breakpoints.desktop}){
     justify-content: flex-start;
     align-items: flex-start;
     gap: 32px;
-    margin: 32px 128px;
+    margin: 48px 128px;
   }
 `
 
@@ -23,8 +23,8 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 56px;
-  padding: 32px 10px;
+  gap: 32px;
+  padding: 24px 10px;
   @media(min-width: ${breakpoints.desktop}){
     flex-direction: row;
     justify-content: space-between;

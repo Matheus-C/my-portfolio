@@ -19,6 +19,6 @@ export const Image = styled(motion.img) <{ $dimensions: Dimension, $hover?: bool
     border-radius: ${props => props.$dimensions.desktop.borderRadius ? props.$dimensions.desktop.borderRadius : "0"};
   }
   &:hover{
-    scale: ${props => props.$hover ? 1.3 : 1};
+    scale: ${props => props.$hover ? 1.1 : 1};
   }
 `

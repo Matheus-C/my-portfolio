@@ -9,11 +9,11 @@ export const Container = styled.div`
   justify-content: center;
   min-height: 100vh;
   gap: 10px;
-  margin: 0 10px 16px;
+  margin: 0 10px;
   flex-direction: column;
   @media(min-width: ${breakpoints.desktop}) {
     flex-direction: row;
-    margin: -60px 80px 10px;
+    margin: -60px 80px 0;
   }
 `
 
