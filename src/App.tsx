@@ -6,6 +6,7 @@ import { Projects } from './components/projects'
 import { Contact } from './components/contact'
 import { Footer } from './components/footer'
 import { Navbar } from './components/navbar'
+import { Analytics } from '@vercel/analytics/next';
 
 const Container = styled.div`
 `
@@ -21,6 +22,7 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
+      <Analytics />
     </Container>
   )
 }
